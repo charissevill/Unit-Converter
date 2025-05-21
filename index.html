@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" href="la1finalscvillarama.css">
+    <script src="lafinalscvillarama.js" defer></script>
+</head>
+<body>
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="circle circle-3"></div>
+
+    <button onclick="showPage('mainPage')" class="back-btn" aria-label="Back to main menu"><i class="fas fa-arrow-left"></i></button>
+
+    <div class="app-container">
+        <div class="container">
+            <h1 class="app-title">Unit Converter</h1>
+            <p class="app-subtitle">Convert between different units with ease and precision</p>
+            
+            <div class="features-grid">
+                <div class="feature-card" onclick="showPage('weightConverter')">
+                    <div class="feature-icon">
+                        <i class="fas fa-weight-hanging"></i>
+                    </div>
+                    <h3>Weight Converter</h3>
+                    <p>Convert between Kilograms, Grams, and Pounds</p>
+                </div>
+                
+                <div class="feature-card" onclick="showPage('lengthConverter')">
+                    <div class="feature-icon">
+                        <i class="fas fa-ruler"></i>
+                    </div>
+                    <h3>Length Converter</h3>
+                    <p>Convert between Kilometers, Meters, and Feet</p>
+                </div>
+                
+                <div class="feature-card" onclick="showPage('temperatureConverter')">
+                    <div class="feature-icon">
+                        <i class="fas fa-temperature-high"></i>
+                    </div>
+                    <h3>Temperature Converter</h3>
+                    <p>Convert between Celsius, Fahrenheit, and Kelvin</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="weightConverter" class="converter-page">
+            <div class="converter-header">
+                <h2>Weight Converter</h2>
+                <p>Convert between different weight units with precision</p>
+            </div>
+            
+            <div class="conversion-controls">
+                <div class="conversion-control">
+                    <label for="fromUnit">From Unit</label>
+                    <div class="input-container">
+                        <select id="fromUnit">
+                            <option value="Kilograms">Kilograms</option>
+                            <option value="Grams">Grams</option>
+                            <option value="Pound">Pound</option>
+                        </select>
+                        <span class="unit-icon"><i class="fas fa-balance-scale"></i></span>
+                    </div>
+                </div>
+                
+                <button class="swap-btn" onclick="swapUnits('weight')"><i class="fas fa-exchange-alt"></i></button>
+                
+                <div class="conversion-control">
+                    <label for="toUnit">To Unit</label>
+                    <div class="input-container">
+                        <select id="toUnit">
+                            <option value="Grams">Grams</option>
+                            <option value="Kilograms">Kilograms</option>
+                            <option value="Pound">Pound</option>
+                        </select>
+                        <span class="unit-icon"><i class="fas fa-balance-scale"></i></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="weight">Enter Weight Value</label>
+                <div class="input-container">
+                    <input type="number" id="weight" placeholder="Enter weight value">
+                    <span class="unit-icon"><i class="fas fa-weight-hanging"></i></span>
+                </div>
+            </div>
+            
+            <button class="convert-btn" onclick="convertWeight()"><i class="fas fa-calculator"></i>Convert</button>
+            
+            <div class="result-container">
+                <div class="result" id="result"></div>
+            </div>
+        </div>
+
+        <div id="lengthConverter" class="converter-page">
+            <div class="converter-header">
+                <h2>Length Converter</h2>
+                <p>Convert between different length units with precision</p>
+            </div>
+            
+            <div class="conversion-controls">
+                <div class="conversion-control">
+                    <label for="fromLength">From Unit</label>
+                    <div class="input-container">
+                        <select id="fromLength">
+                            <option value="Kilometers">Kilometers</option>
+                            <option value="Meters">Meters</option>
+                            <option value="Feet">Feet</option>
+                        </select>
+                        <span class="unit-icon"><i class="fas fa-ruler-horizontal"></i></span>
+                    </div>
+                </div>
+                
+                <button class="swap-btn" onclick="swapUnits('length')"><i class="fas fa-exchange-alt"></i></button>
+                
+                <div class="conversion-control">
+                    <label for="toLength">To Unit</label>
+                    <div class="input-container">
+                        <select id="toLength">
+                            <option value="Meters">Meters</option>
+                            <option value="Kilometers">Kilometers</option>
+                            <option value="Feet">Feet</option>
+                        </select>
+                        <span class="unit-icon"><i class="fas fa-ruler-horizontal"></i></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="length">Enter Length Value</label>
+                <div class="input-container">
+                    <input type="number" id="length" placeholder="Enter length value">
+                    <span class="unit-icon"><i class="fas fa-ruler"></i></span>
+                </div>
+            </div>
+            
+            <button class="convert-btn" onclick="convertLength()"><i class="fas fa-calculator"></i>Convert</button>
+            
+            <div class="result-container">
+                <div class="result" id="lengthResult"></div>
+            </div>
+        </div>
+
+        <div id="temperatureConverter" class="converter-page">
+            <div class="converter-header">
+                <h2>Temperature Converter</h2>
+                <p>Convert between different temperature units with precision</p>
+            </div>
+            
+            <div class="conversion-controls">
+                <div class="conversion-control">
+                    <label for="fromTemp">From Unit</label>
+                    <div class="input-container">
+                        <select id="fromTemp">
+                            <option value="Celsius">Celsius</option>
+                            <option value="Fahrenheit">Fahrenheit</option>
+                            <option value="Kelvin">Kelvin</option>
+                        </select>
+                        <span class="unit-icon"><i class="fas fa-thermometer-half"></i></span>
+                    </div>
+                </div>
+                
+                <button class="swap-btn" onclick="swapUnits('temp')"><i class="fas fa-exchange-alt"></i></button>
+                
+                <div class="conversion-control">
+                    <label for="toTemp">To Unit</label>
+                    <div class="input-container">
+                        <select id="toTemp">
+                            <option value="Fahrenheit">Fahrenheit</option>
+                            <option value="Celsius">Celsius</option>
+                            <option value="Kelvin">Kelvin</option>
+                        </select>
+                        <span class="unit-icon"><i class="fas fa-thermometer-half"></i></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="temperature">Enter Temperature Value</label>
+                <div class="input-container">
+                    <input type="number" id="temperature" placeholder="Enter temperature value">
+                    <span class="unit-icon"><i class="fas fa-temperature-high"></i></span>
+                </div>
+            </div>
+            
+            <button class="convert-btn" onclick="convertTemperature()"><i class="fas fa-calculator"></i>Convert</button>
+            
+            <div class="result-container">
+                <div class="result" id="tempResult"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
