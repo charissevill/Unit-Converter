@@ -1,0 +1,3 @@
+# Unit Converter
+
+A simple and user-friendly **Unit Converter** application that allows users to quickly convert values between different units of measurement. The app supports multiple conversion categories such as **Length, Weight, Temperature, Area, Volume, Speed, Time, and Data Storage**, providing fast and accurate calculations through an intuitive interface. Built with clean design principles and responsive functionality, this project demonstrates practical implementation of conversion formulas while delivering a smooth user experience. Ideal for students, professionals, and anyone who needs quick and reliable unit conversions.
